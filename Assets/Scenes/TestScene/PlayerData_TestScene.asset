@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 114099efd8e0a9e4790acabd04b420c9, type: 3}
-  m_Name: TestScene_PlayerData
+  m_Name: PlayerData_TestScene
   m_EditorClassIdentifier: 
-  availableBuildings: []
+  availableBuildings:
+  - {fileID: 339568232180721877, guid: 369c5d1e6a24d6a4f8ec6ff74c7ca4da, type: 3}
   ressources: 0

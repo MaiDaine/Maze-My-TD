@@ -24,7 +24,7 @@ namespace MazeMyTD
 
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.Alpha1))//TODO: Inputs
                 SpawnBuilding(0);
 
             if (constructionState == ConstructionState.Positioning)
