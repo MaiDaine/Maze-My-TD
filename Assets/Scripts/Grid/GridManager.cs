@@ -5,31 +5,37 @@ namespace MazeMyTD
 {
     public class GridManager : MonoBehaviour
     {
-        public GridData gd;
+#pragma warning disable 0649 //Field "" is never assigned to, and will always have its default value null
+        [SerializeField]
+        private GridData gridData;
+        [SerializeField]
+        private GameObject gridWireFrame;
+#pragma warning restore 0649
 
         public void SpawnGrid()
         {
 #if UNITY_EDITOR
             DestroyGrid();
-            gd.tiles = new GameObject[gd.height * gd.width];
-            for (int z = 0; z < gd.height; z++)
-                for (int x = 0; x < gd.width; x++)
+            gridData.tiles = new GameObject[gridData.height * gridData.width];
+            for (int z = 0; z < gridData.height; z++)
+                for (int x = 0; x < gridData.width; x++)
                 {
-                    GameObject tile = (GameObject)PrefabUtility.InstantiatePrefab(gd.tileRef as GameObject, this.transform);
-                    gd.tiles[z * gd.width + x] = tile;
-                    tile.transform.position = new Vector3(transform.position.x + gd.tileOffset * x, transform.position.y, transform.position.z + gd.tileOffset * z);
+                    GameObject tile = (GameObject)PrefabUtility.InstantiatePrefab(gridData.tileRef as GameObject, this.transform);
+                    gridData.tiles[z * gridData.width + x] = tile;
+                    tile.transform.position = new Vector3(transform.position.x + gridData.tileOffset * x, transform.position.y, transform.position.z + gridData.tileOffset * z);
                     tile.GetComponent<Tile>().gridPos = new Vector2Int(x, z);
                 }
+            gridWireFrame.GetComponent<MeshRenderer>().sharedMaterial.SetVector("Tiling", new Vector4(gridData.width, gridData.height));
 #endif
         }
 
         public void UpdateTilePosition()
         {
-            if (gd.tiles != null && gd.tiles.Length != 0)
-                foreach (GameObject tileObj in gd.tiles)
+            if (gridData.tiles != null && gridData.tiles.Length != 0)
+                foreach (GameObject tileObj in gridData.tiles)
                 {
                     Tile tile = tileObj.GetComponent<Tile>();
-                    tileObj.transform.position = new Vector3(transform.position.x + gd.tileOffset * tile.gridPos.x, transform.position.y, transform.position.z + gd.tileOffset * tile.gridPos.y);
+                    tileObj.transform.position = new Vector3(transform.position.x + gridData.tileOffset * tile.gridPos.x, transform.position.y, transform.position.z + gridData.tileOffset * tile.gridPos.y);
                 }
             else
             {
@@ -40,20 +46,20 @@ namespace MazeMyTD
                     return;
                 }
 
-                gd.tiles = null;
-                gd.tiles = new GameObject[tiles.Length];
+                gridData.tiles = null;
+                gridData.tiles = new GameObject[tiles.Length];
                 foreach (Tile tile in tiles)
-                    gd.tiles[tile.gridPos.y * gd.width + tile.gridPos.x] = tile.gameObject;
+                    gridData.tiles[tile.gridPos.y * gridData.width + tile.gridPos.x] = tile.gameObject;
             }
         }
 
         public void DestroyGrid()
         {
-            if (gd.tiles != null && gd.tiles.Length != 0)
-                for (int z = 0; z < gd.height; z++)
-                    for (int x = 0; x < gd.width; x++)
-                        DestroyImmediate(gd.tiles[z * gd.width + x]);
-            gd.tiles = null;
+            if (gridData.tiles != null && gridData.tiles.Length != 0)
+                for (int z = 0; z < gridData.height; z++)
+                    for (int x = 0; x < gridData.width; x++)
+                        DestroyImmediate(gridData.tiles[z * gridData.width + x]);
+            gridData.tiles = null;
         }
     }
 }
