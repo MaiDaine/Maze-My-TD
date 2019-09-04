@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3424568416457531023}
   - component: {fileID: 6990978126303104387}
   - component: {fileID: 5436088452254965923}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5608951419276585138}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
