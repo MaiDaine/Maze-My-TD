@@ -4,6 +4,6 @@ namespace MazeMyTD
 {
     public class CreepSpawn : InnateElement
     {
-        public Transform SpawnPoint;
+        public Transform spawnPoint;
     }
 }
