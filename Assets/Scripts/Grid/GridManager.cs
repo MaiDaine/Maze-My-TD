@@ -42,7 +42,7 @@ namespace MazeMyTD
                 Tile[] tiles = FindObjectsOfType<Tile>();
                 if (tiles.Length == 0)
                 {
-                    Debug.Log("No tiles found, please re spawn the grid");
+                    Debug.LogError("No tiles found, please re spawn the grid");
                     return;
                 }
 

@@ -2,6 +2,7 @@
 
 namespace MazeMyTD
 {
+    [RequireComponent(typeof(MeshRenderer))]
     public abstract class ABuilding : MonoBehaviour
     {
         public Tile occupiedTile;
