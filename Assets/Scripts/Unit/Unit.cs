@@ -3,6 +3,7 @@
 namespace MazeMyTD
 {
     [RequireComponent(typeof(UnitMovement))]
+    [RequireComponent(typeof(UnitDamage))]
     public class Unit : MonoBehaviour
     {
         [HideInInspector]
@@ -13,6 +14,7 @@ namespace MazeMyTD
             currentStats = ScriptableObject.CreateInstance("UnitStats") as UnitStats;
             currentStats.Assign(stats);
             GetComponent<UnitMovement>().Initialize(currentStats.moveSpeed);
+            GetComponent<UnitDamage>().Initialize(currentStats.coreDmg);
         }
     }
 }

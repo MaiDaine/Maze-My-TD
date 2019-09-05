@@ -6,6 +6,7 @@ namespace MazeMyTD
     public class PlayerData : ScriptableObject
     {
         public ABuilding[] availableBuildings;
+        public int health;
         public int ressources;
     }
 }

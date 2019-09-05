@@ -8180,6 +8180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creepSpawn: {fileID: 1984530297614656027}
   core: {fileID: 6246053523929060811}
+  playerData: {fileID: 11400000, guid: 385e0da8c5b82ca42bbdc5850c1c5a39, type: 2}
 --- !u!120 &1580819214
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -11136,6 +11137,11 @@ PrefabInstance:
       propertyPath: occupiedTile
       value: 
       objectReference: {fileID: 276889004}
+    - target: {fileID: 1833778279982643618, guid: 5fb384ab8b8020f46a3607c23fc2c848,
+        type: 3}
+      propertyPath: gameRules
+      value: 
+      objectReference: {fileID: 1580819213}
     - target: {fileID: 4841688363902591108, guid: 5fb384ab8b8020f46a3607c23fc2c848,
         type: 3}
       propertyPath: m_Enabled
@@ -11237,12 +11243,18 @@ PrefabInstance:
         type: 3}
       propertyPath: creepRef
       value: 
-      objectReference: {fileID: 3118104516413327094, guid: 2df07a2ac1092864a8b6f546e0d2160d,
+      objectReference: {fileID: -3366616248787329209, guid: 2df07a2ac1092864a8b6f546e0d2160d,
         type: 3}
     - target: {fileID: 1132675234836798422, guid: 4b51219b65a5e0b4a9003434504503ef,
         type: 3}
       propertyPath: occupiedTile
       value: 
       objectReference: {fileID: 1116874632}
+    - target: {fileID: 1132675234836798422, guid: 4b51219b65a5e0b4a9003434504503ef,
+        type: 3}
+      propertyPath: creepStats
+      value: 
+      objectReference: {fileID: 11400000, guid: fce6fcebd75ae1147a31b6835528d726,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b51219b65a5e0b4a9003434504503ef, type: 3}

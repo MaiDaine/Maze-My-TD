@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51af1ef99c8d9f40a281bf800224247, type: 3}
   m_Name: UnitStats_DefaultEnemy
   m_EditorClassIdentifier: 
-  health: 0
-  coreDmg: 0
-  moveSpeed: 0
+  health: 100
+  coreDmg: 1
+  moveSpeed: 1.5
