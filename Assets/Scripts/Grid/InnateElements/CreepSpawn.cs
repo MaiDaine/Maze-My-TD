@@ -8,7 +8,8 @@ namespace MazeMyTD
         public Transform spawnPoint;
         public NavMeshPath currentCreepPath;
 
-        public GameObject creepRef;
+        public Unit creepRef;
+        public UnitStats creepStats;
 
         public void Start()
         {
@@ -19,13 +20,12 @@ namespace MazeMyTD
                 Debug.LogError("SpawnPoint is off the Grid");
         }
 
-        //Tmp function use to test creep path
+        //Tmp function, should only used for testing purpose
         public void SpawnCreep()
         {
-            NavMeshAgent agent = Instantiate(creepRef, spawnPoint.position, spawnPoint.rotation).GetComponent<NavMeshAgent>();
-            agent.Warp(spawnPoint.position);
-            agent.enabled = true;
-            agent.path = currentCreepPath;
+            Unit unit = Instantiate(creepRef, spawnPoint.position, spawnPoint.rotation);
+            unit.Initialize(creepStats);
+            unit.GetComponent<UnitMovement>().SetPath(currentCreepPath, spawnPoint.position);
         }
     }
 }
