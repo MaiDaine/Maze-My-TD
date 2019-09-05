@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2741180753256035960}
   - component: {fileID: 1258763401581434087}
   - component: {fileID: 5880259981519871878}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderDoorway_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 9096838503137919996}
   - component: {fileID: 9081237031323825911}
   - component: {fileID: 2618760337344794766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderCornerDiagonal_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 4576383970486018008}
   - component: {fileID: 2339287915244518448}
   - component: {fileID: 2506843815599108072}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderCornerDiagonal_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 3161137026897991469}
   - component: {fileID: 561143718157177974}
   - component: {fileID: 8828391688461137507}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderCornerDiagonal_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 9052201339722110440}
   - component: {fileID: 7998254243075363881}
   - component: {fileID: 367564554023893700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderDoorway_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 976454274794583062}
   - component: {fileID: 713714470103644597}
   - component: {fileID: 1589489473277040123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderCornerDiagonal_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 5707829041875458834}
   - component: {fileID: 1967551656718735019}
   - component: {fileID: 7410523130257832407}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderDoorway_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 928474019110024008}
   - component: {fileID: 2453245758599707147}
   - component: {fileID: 1838686130935483154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: roof_window_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 23561832066003060}
   - component: {fileID: 121909092849170287}
   - component: {fileID: 629556424169077984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderCornerDiagonal_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 2178856395535784353}
   - component: {fileID: 6573848192533335313}
   - component: {fileID: 8306428026137877843}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderDoorway_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   - component: {fileID: 3353330225181330275}
   - component: {fileID: 4874127603703661610}
   - component: {fileID: 7015951293362609189}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderCornerDiagonal_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 6656506604048824682}
   - component: {fileID: 2602968822935650670}
   - component: {fileID: 1132675234836798422}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +932,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupiedTile: {fileID: 0}
-  SpawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  creepRef: {fileID: 0}
+  creepStats: {fileID: 0}
 --- !u!1 &8478001755234843282
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +946,7 @@ GameObject:
   - component: {fileID: 1454288885810243242}
   - component: {fileID: 9075539887800470111}
   - component: {fileID: 7349118291436560604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderCornerDiagonal_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1022,7 +1024,7 @@ GameObject:
   - component: {fileID: 5040880770107510357}
   - component: {fileID: 8362887641620091562}
   - component: {fileID: 6178808360101540196}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wall_borderCornerDiagonal_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

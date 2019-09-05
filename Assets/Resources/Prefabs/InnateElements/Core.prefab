@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2565292908871752780}
   - component: {fileID: 8959184313016431342}
   - component: {fileID: 2562627353208137768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2723129264451588834}
   - component: {fileID: 757547114010553680}
   - component: {fileID: 2404745843006491782}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 2893119533701564084}
   - component: {fileID: 9063894009705758066}
   - component: {fileID: 7126998476724453493}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2496620292715006023}
   - component: {fileID: 1833778279982643618}
-  m_Layer: 0
+  - component: {fileID: 5938453474496970723}
+  m_Layer: 9
   m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,6 +299,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupiedTile: {fileID: 0}
   creepTarget: {fileID: 6245766554754940575}
+  gameRules: {fileID: 0}
+--- !u!65 &5938453474496970723
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512821576332589652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: -0.5, y: 0.5, z: -0.5}
 --- !u!1 &2045893645679956239
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6245766554754940575}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CreepTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +354,7 @@ GameObject:
   - component: {fileID: 6088004136445647513}
   - component: {fileID: 5407716457704844567}
   - component: {fileID: 4061404955153307661}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +432,7 @@ GameObject:
   - component: {fileID: 4263999519932689650}
   - component: {fileID: 3139928780287063962}
   - component: {fileID: 5626050718381563690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +510,7 @@ GameObject:
   - component: {fileID: 1851748012741427685}
   - component: {fileID: 3345146723675626450}
   - component: {fileID: 3956894957718693955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +588,7 @@ GameObject:
   - component: {fileID: 8246864544671012629}
   - component: {fileID: 9053826733074495321}
   - component: {fileID: 4188020418372413187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hex_36
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +666,7 @@ GameObject:
   - component: {fileID: 768228564057843398}
   - component: {fileID: 8115128026427412999}
   - component: {fileID: 3113783469956293436}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hex_33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +744,7 @@ GameObject:
   - component: {fileID: 5090547958412461615}
   - component: {fileID: 8936893998196464586}
   - component: {fileID: 4437938861647921504}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +822,7 @@ GameObject:
   - component: {fileID: 7694555345541659897}
   - component: {fileID: 6243895466714624010}
   - component: {fileID: 4877800756673496290}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hex_37
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +900,7 @@ GameObject:
   - component: {fileID: 2565742369549997817}
   - component: {fileID: 2671835091947585881}
   - component: {fileID: 4656396543880879165}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +978,7 @@ GameObject:
   - component: {fileID: 9009441126234894443}
   - component: {fileID: 3220109506248294067}
   - component: {fileID: 8535953568720454947}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hex_34
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1041,7 +1056,7 @@ GameObject:
   - component: {fileID: 1539110515751068290}
   - component: {fileID: 4633657821228005315}
   - component: {fileID: 3365096507402727629}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hex_32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1134,7 @@ GameObject:
   - component: {fileID: 4658237337224149665}
   - component: {fileID: 4299494284754436161}
   - component: {fileID: 9030274631695262451}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1197,7 +1212,7 @@ GameObject:
   - component: {fileID: 8832066205973651504}
   - component: {fileID: 5329488982739998650}
   - component: {fileID: 3480000960320532494}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1275,7 +1290,7 @@ GameObject:
   - component: {fileID: 6333351643496595938}
   - component: {fileID: 2441019476525475046}
   - component: {fileID: 4745255008247652429}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1353,7 +1368,7 @@ GameObject:
   - component: {fileID: 1389095456440992986}
   - component: {fileID: 3538153769935825461}
   - component: {fileID: 1268015158977202783}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: detail_bricks_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1431,7 +1446,7 @@ GameObject:
   - component: {fileID: 587737514802411404}
   - component: {fileID: 6499284154552457941}
   - component: {fileID: 5389499720743396006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hex_35
   m_TagString: Untagged
   m_Icon: {fileID: 0}

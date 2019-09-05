@@ -14,10 +14,9 @@ namespace MazeMyTD
             GetWindow<GridEditor>("GridEditor");
         }
 
+#if UNITY_EDITOR
         private void OnGUI()
         {
-
-#if UNITY_EDITOR
             //Grid Construction
             if (GUILayout.Button("Spawn Grid"))
                 FindObjectOfType<GridManager>().SpawnGrid();
@@ -41,7 +40,7 @@ namespace MazeMyTD
 
         private void SetTileStatusOnInnateBuildings()
         {
-           InnateElement[] innateElements = FindObjectsOfType<InnateElement>();
+            InnateElement[] innateElements = FindObjectsOfType<InnateElement>();
             for (int i = 0; i < innateElements.Length; i++)
                 innateElements[i].SetInvalidStatusOnTile();
         }
