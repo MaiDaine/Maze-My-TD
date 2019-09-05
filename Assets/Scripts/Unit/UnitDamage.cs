@@ -5,7 +5,8 @@ namespace MazeMyTD
     [RequireComponent(typeof(SphereCollider))]
     public class UnitDamage : MonoBehaviour
     {
-        private int coreDamage;
+        [HideInInspector]
+        public int coreDamage;
 
         public void Initialize(int coreDamage)
         {

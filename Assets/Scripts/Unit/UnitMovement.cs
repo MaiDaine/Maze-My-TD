@@ -6,10 +6,13 @@ namespace MazeMyTD
     [RequireComponent(typeof(NavMeshAgent))]
     public class UnitMovement : MonoBehaviour
     {
+        public float currentSpeed;
+
         private NavMeshAgent agent;
 
         public void Initialize(float unitSpeed)
         {
+            currentSpeed = unitSpeed;
             agent = GetComponent<NavMeshAgent>();
             agent.speed = unitSpeed;
         }
