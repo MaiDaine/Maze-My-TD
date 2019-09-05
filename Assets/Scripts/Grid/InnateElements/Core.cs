@@ -16,7 +16,7 @@ namespace MazeMyTD
         {
             //TODO: Visual Effect
             gameRules.CoreDamage(damage);
-            Debug.Log("Damage taken: " + damage.ToString());
+            Debug.Log("Damage taken: " + damage.ToString());    
         }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace MazeMyTD
 {
+    [RequireComponent(typeof(UnitHealth))]
     [RequireComponent(typeof(UnitMovement))]
     [RequireComponent(typeof(UnitDamage))]
     [RequireComponent(typeof(Rigidbody))]
@@ -10,12 +11,19 @@ namespace MazeMyTD
         [HideInInspector]
         public UnitStats currentStats;
 
-        public virtual void Initialize(UnitStats stats)
+        public void Initialize(UnitStats stats)
         {
             currentStats = ScriptableObject.CreateInstance("UnitStats") as UnitStats;
             currentStats.Assign(stats);
+            GetComponent<UnitHealth>().Initialize(currentStats.health);
             GetComponent<UnitMovement>().Initialize(currentStats.moveSpeed);
             GetComponent<UnitDamage>().Initialize(currentStats.coreDmg);
+        }
+
+        public void OnDeath()
+        {
+            //TODO DeathAnimation
+            Destroy(gameObject);
         }
     }
 }
