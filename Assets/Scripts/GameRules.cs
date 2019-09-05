@@ -6,7 +6,7 @@ namespace MazeMyTD
     [RequireComponent(typeof(PathRenderer))]
     public class GameRules : MonoBehaviour
     {
-        public CreepSpawn creepSpawn;
+        public EnemySpawner enemySpawner;
         public Core core;
 
 #pragma warning disable 0649 //Field "" is never assigned to, and will always have its default value null
@@ -19,7 +19,7 @@ namespace MazeMyTD
             if (Input.GetKeyDown(KeyCode.L))
             {
                 CreateWavePath();
-                creepSpawn.SpawnCreep();
+                enemySpawner.SpawnCreep();
             }
         }
 
@@ -27,9 +27,9 @@ namespace MazeMyTD
         {
             NavMeshPath path = new NavMeshPath();
 
-            NavMesh.CalculatePath(creepSpawn.spawnPoint.position, core.creepTarget.position, NavMesh.AllAreas, path);
-            GetComponent<PathRenderer>().UpdateRenderedPath(path, creepSpawn.transform.position);
-            creepSpawn.currentCreepPath = path;
+            NavMesh.CalculatePath(enemySpawner.spawnPoint.position, core.creepTarget.position, NavMesh.AllAreas, path);
+            GetComponent<PathRenderer>().UpdateRenderedPath(path, enemySpawner.transform.position);
+            enemySpawner.currentCreepPath = path;
         }
 
         public void CoreDamage(int damage)

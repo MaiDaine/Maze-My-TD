@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MazeMyTD
 {
-    public class CreepSpawn : InnateElement
+    public class EnemySpawner : InnateElement
     {
         public Transform spawnPoint;
         public NavMeshPath currentCreepPath;

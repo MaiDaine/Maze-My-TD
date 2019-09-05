@@ -8178,7 +8178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556527213d9331d4b964f6bf6f570cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creepSpawn: {fileID: 1984530297614656027}
+  enemySpawner: {fileID: 1984530297614656027}
   core: {fileID: 6246053523929060811}
   playerData: {fileID: 11400000, guid: 385e0da8c5b82ca42bbdc5850c1c5a39, type: 2}
 --- !u!120 &1580819214

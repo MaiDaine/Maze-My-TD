@@ -4,6 +4,7 @@ namespace MazeMyTD
 {
     [RequireComponent(typeof(UnitMovement))]
     [RequireComponent(typeof(UnitDamage))]
+    [RequireComponent(typeof(Rigidbody))]
     public class Unit : MonoBehaviour
     {
         [HideInInspector]

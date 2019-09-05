@@ -2,6 +2,7 @@
 
 namespace MazeMyTD
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class Core : InnateElement
     {
         public Transform creepTarget;
@@ -15,6 +16,7 @@ namespace MazeMyTD
         {
             //TODO: Visual Effect
             gameRules.CoreDamage(damage);
+            Debug.Log("Damage taken: " + damage.ToString());
         }
     }
 }
