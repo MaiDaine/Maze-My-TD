@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableBuildings:
   - {fileID: 339568232180721877, guid: 369c5d1e6a24d6a4f8ec6ff74c7ca4da, type: 3}
-  ressources: 0
+  health: 100
+  ressources: 50

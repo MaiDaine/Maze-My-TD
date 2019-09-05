@@ -4,6 +4,7 @@ using UnityEditor;
 
 namespace MazeMyTD
 {
+#if UNITY_EDITOR
     public class GridEditor : EditorWindow
     {
         public Tile.TileState tileOptions;
@@ -14,7 +15,6 @@ namespace MazeMyTD
             GetWindow<GridEditor>("GridEditor");
         }
 
-#if UNITY_EDITOR
         private void OnGUI()
         {
             //Grid Construction
@@ -59,6 +59,6 @@ namespace MazeMyTD
 
             Selection.objects = results;
         }
-#endif
     }
+#endif
 }

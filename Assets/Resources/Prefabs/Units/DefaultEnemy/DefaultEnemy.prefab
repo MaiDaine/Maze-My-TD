@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd79f99f20e0ae3479eb13a5b6b37449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpeed: 0
 --- !u!114 &5130778913075126924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25076ac55991f054abe7377c9a113067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coreDamage: 0
 --- !u!114 &5549866387212091436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,31 +151,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4292607711878383691}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 16426d1a33ca42546ad39f46dc1a01ca,
-        type: 3}
-      propertyPath: m_Name
-      value: DefaultEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 16426d1a33ca42546ad39f46dc1a01ca,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -8981084878612570761, guid: 16426d1a33ca42546ad39f46dc1a01ca,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -7740207730177796098, guid: 16426d1a33ca42546ad39f46dc1a01ca,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -4613750143648262366, guid: 16426d1a33ca42546ad39f46dc1a01ca,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 16426d1a33ca42546ad39f46dc1a01ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -244,17 +221,42 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.030000007
       objectReference: {fileID: 0}
-    - target: {fileID: 873975585009745201, guid: 16426d1a33ca42546ad39f46dc1a01ca,
+    - target: {fileID: -927199367670048503, guid: 16426d1a33ca42546ad39f46dc1a01ca,
         type: 3}
-      propertyPath: m_Layer
-      value: 10
+      propertyPath: m_Name
+      value: DefaultEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 1717728153249822159, guid: 16426d1a33ca42546ad39f46dc1a01ca,
+    - target: {fileID: -927199367670048503, guid: 16426d1a33ca42546ad39f46dc1a01ca,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3460616732490113138, guid: 16426d1a33ca42546ad39f46dc1a01ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4613750143648262366, guid: 16426d1a33ca42546ad39f46dc1a01ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8981084878612570761, guid: 16426d1a33ca42546ad39f46dc1a01ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 873975585009745201, guid: 16426d1a33ca42546ad39f46dc1a01ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7740207730177796098, guid: 16426d1a33ca42546ad39f46dc1a01ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717728153249822159, guid: 16426d1a33ca42546ad39f46dc1a01ca,
         type: 3}
       propertyPath: m_Layer
       value: 10
