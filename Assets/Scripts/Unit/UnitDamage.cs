@@ -16,8 +16,10 @@ namespace MazeMyTD
         {
             Core core = other.GetComponent<Core>();
             if (core != null)
+            {
                 core.TakeDamage(coreDamage);
-            //TODO: Death
+                GetComponent<Unit>().OnDeath();
+            }
         }
     }
 }
