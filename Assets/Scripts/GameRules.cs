@@ -1,6 +1,7 @@
 ﻿using UnityEngine.AI;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace MazeMyTD
 {
@@ -44,39 +45,6 @@ namespace MazeMyTD
             RefreshWavePath();
         }
 
-        public bool RefreshWavePath()
-        {
-            NavMeshPath path = new NavMeshPath();
-
-            if (NavMesh.CalculatePath(enemySpawner.spawnPoint.position, core.creepTarget.position, NavMesh.AllAreas, path)
-                && path.status == NavMeshPathStatus.PathComplete)
-            {
-                GetComponent<PathRenderer>().UpdateRenderedPath(path, enemySpawner.transform.position);
-                enemySpawner.currentCreepPath = path;
-                return true;
-            }
-            return false;
-        }
-
-        public void CoreDamage(int damage)
-        {
-            playerData.health -= damage;
-            if (playerData.health <= 0)
-                OnGameOver.Raise();
-            OnPlayerHealthChange.Raise();
-        }
-
-        public void OnWaveEnd()
-        {
-            waveStatus = false;
-            waveTimer = delayBetweenWaves;
-            int gain = ressourceGain * waveLevel;
-            playerData.ressources += gain;
-            messageLog.AddMessage("You gain: " + gain.ToString() + " ressources");
-            OnPlayerRessourceChange.Raise();
-            waveLevel++;
-        }
-
         private void FixedUpdate()
         {
             if (!waveStatus)
@@ -91,6 +59,53 @@ namespace MazeMyTD
                 else
                     UIController.SetWaveTimer((int)waveTimer);
             }
+        }
+
+        public bool RefreshWavePath()
+        {
+            NavMeshPath path = new NavMeshPath();
+
+            if (NavMesh.CalculatePath(enemySpawner.spawnPoint.position, core.creepTarget.position, NavMesh.AllAreas, path)
+                && path.status == NavMeshPathStatus.PathComplete)
+            {
+                GetComponent<PathRenderer>().UpdateRenderedPath(path, enemySpawner.transform.position);
+                enemySpawner.currentCreepPath = path;
+                return true;
+            }
+            return false;
+        }
+    
+        public void CoreDamage(int damage)
+        {
+            playerData.health -= damage;
+            if (playerData.health <= 0)
+            {
+                OnGameOver.Raise();
+                Time.timeScale = 0f;
+                messageLog.AddMessage("Gameover at level " + waveLevel.ToString());
+                messageLog.AddMessage("Restarting at level 1");
+                RestartLevel();
+            }
+            OnPlayerHealthChange.Raise();
+        }
+
+        public void OnWaveEnd()
+        {
+            waveStatus = false;
+            waveTimer = delayBetweenWaves;
+            int gain = ressourceGain * waveLevel;
+            playerData.ressources += gain;
+            messageLog.AddMessage("You gain: " + gain.ToString() + " ressources");
+            OnPlayerRessourceChange.Raise();
+            waveLevel++;
+        }
+
+        public void RestartLevel()
+        {
+            playerData.health = 20;
+            playerData.ressources = 100;
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(0);
         }
     }
 }

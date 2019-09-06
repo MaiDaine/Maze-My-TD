@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a04ef25f1a5efd4ba07e9da03d865fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingIcone: {fileID: 2800000, guid: 91fa3e9c536c06b4f80f1f7bf30fbfa3, type: 3}
+  buildingIcone: {fileID: 2800000, guid: 4da2c93630d1e6046a26beb96d868b92, type: 3}
   occupiedTile: {fileID: 0}
   ressourceCost: 5
   finalMaterial: {fileID: 0}

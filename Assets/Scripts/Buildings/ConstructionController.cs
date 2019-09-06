@@ -39,7 +39,7 @@ namespace MazeMyTD
             rayCast = Camera.main.GetComponent<RayCastHelper>();
         }
 
-        public void Update()
+        private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
                 SpawnBuilding(0);

@@ -10,9 +10,9 @@ namespace MazeMyTD
         private RawImage icone;
         [SerializeField]
         private Text cost;
-#pragma warning restore 0649
-
+        [SerializeField]
         private int slotIndex;
+#pragma warning restore 0649
 
         public void SetSlotData(Texture texture, string cost, int slotIndex)
         {

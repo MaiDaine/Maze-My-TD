@@ -44,7 +44,7 @@ namespace MazeMyTD
             currentStats.health = unitStatsRef.health + level;
             currentStats.moveSpeed = unitStatsRef.moveSpeed + level / 10f;
             currentStats.coreDmg = unitStatsRef.coreDmg + level / 2;
-            unitStock = 10 + level / 3;
+            unitStock = 5 + level / 3;
         }
 
         private void FixedUpdate()
