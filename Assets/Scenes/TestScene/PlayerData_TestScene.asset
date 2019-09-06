@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData_TestScene
   m_EditorClassIdentifier: 
   availableBuildings:
-  - {fileID: 339568232180721877, guid: 369c5d1e6a24d6a4f8ec6ff74c7ca4da, type: 3}
+  - {fileID: 2317089481746118865, guid: d8f6507f3cdbec643b2d28161835a0f5, type: 3}
+  - {fileID: 4952715157035118718, guid: c8501b7e53f3e5e4e8edfee99a383f17, type: 3}
   health: 100
   ressources: 50

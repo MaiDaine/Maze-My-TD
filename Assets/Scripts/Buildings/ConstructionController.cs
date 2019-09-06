@@ -6,6 +6,16 @@ namespace MazeMyTD
     {
         public enum ConstructionState { Off, Positioning, Edit };
 
+        public static ConstructionController instance;
+
+        private void Awake()
+        {
+            if (instance == null)
+                instance = this;
+            else
+                Destroy(this);
+        }
+
 #pragma warning disable 0649 //Field "" is never assigned to, and will always have its default value null
         [SerializeField]
         private PlayerData playerData;
