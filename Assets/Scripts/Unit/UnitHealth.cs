@@ -27,6 +27,9 @@ namespace MazeMyTD
 
         public bool TakeDamage(int damage)
         {
+            if (damage <= 0)
+                return false;
+
             currentHealth -= damage;
             if (currentHealth <= 0)
             {

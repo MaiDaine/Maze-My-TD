@@ -11,6 +11,12 @@ namespace MazeMyTD
         [HideInInspector]
         public UnitStats currentStats;
 
+#pragma warning disable 0649 //Field "" is never assigned to, and will always have its default value null
+        [SerializeField]
+        private GameEvent onUnitDeath;
+#pragma warning restore 0649
+
+
         public void Initialize(UnitStats stats)
         {
             currentStats = ScriptableObject.CreateInstance("UnitStats") as UnitStats;
@@ -23,6 +29,7 @@ namespace MazeMyTD
         public void OnDeath()
         {
             //TODO DeathAnimation
+            onUnitDeath.Raise();
             Destroy(gameObject);
         }
     }

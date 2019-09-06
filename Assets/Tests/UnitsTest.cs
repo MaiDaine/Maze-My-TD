@@ -67,7 +67,7 @@ namespace Tests
         [Test]
         public void UnitSuccesfullyTakesDamage()
         {
-            int maxHealth = Random.Range(2, 100);
+            int maxHealth = Random.Range(2, 10);
             GameObject unit = CreateDefaultEnemyWithStats(CreateUnitStats(maxHealth, 1, 1.5f));
             UnitHealth unitHealth = unit.GetComponent<UnitHealth>();
 
@@ -76,6 +76,33 @@ namespace Tests
 
             unitHealth.TakeDamage(maxHealth);
             Assert.Less(unitHealth.currentHealth, 0);
+            Assert.AreEqual(unitHealth.alive, false);
+        }
+
+        [Test]
+        public void InvalidValueForDamage()
+        {
+            int maxHealth = Random.Range(1, 100);
+            GameObject unit = CreateDefaultEnemyWithStats(CreateUnitStats(maxHealth, 1, 1.5f));
+            UnitHealth unitHealth = unit.GetComponent<UnitHealth>();
+
+            unitHealth.TakeDamage(0);
+            Assert.AreEqual(unitHealth.currentHealth, maxHealth);
+
+            unitHealth.TakeDamage((int)Random.Range(-1000, 0));
+            Assert.AreEqual(unitHealth.currentHealth, maxHealth);
+        }
+
+        [Test]
+        public void UnitKill()
+        {
+            int maxHealth = Random.Range(1, 100);
+            GameObject unit = CreateDefaultEnemyWithStats(CreateUnitStats(maxHealth, 1, 1.5f));
+            UnitHealth unitHealth = unit.GetComponent<UnitHealth>();
+
+            bool status = unitHealth.TakeDamage((int)Random.Range(maxHealth, 1000));
+            Assert.LessOrEqual(unitHealth.currentHealth, 0);
+            Assert.AreEqual(status, true);
             Assert.AreEqual(unitHealth.alive, false);
         }
 
