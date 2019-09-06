@@ -52,8 +52,13 @@ namespace MazeMyTD
                 if (tile != null)
                 {
                     selectedBuilding.Move(tile.tileCenter.transform.position);
-                    if (Input.GetMouseButtonDown(0) && tile.tileState == Tile.TileState.Empty)
-                        StartCoroutine(PlaceBuilding());
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        if (tile.tileState == Tile.TileState.Empty)
+                            StartCoroutine(PlaceBuilding());
+                        else
+                            messageLog.AddMessage("Tile is not empty", true);
+                    }
                 }
             }
         }
@@ -84,7 +89,7 @@ namespace MazeMyTD
                 return;
 
             if (constructionState == ConstructionState.Positioning)
-                Destroy(selectedBuilding);
+                Destroy(selectedBuilding.gameObject);
             else
                 constructionState = ConstructionState.Positioning;
 

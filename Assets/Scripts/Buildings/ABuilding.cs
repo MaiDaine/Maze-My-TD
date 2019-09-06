@@ -15,7 +15,7 @@ namespace MazeMyTD
         [SerializeField]
         private Material finalMaterial;
         [SerializeField]
-        private Vector3 positionOffset;
+        protected Vector3 positionOffset;
 #pragma warning restore 0649
 
 
