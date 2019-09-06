@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStats: {fileID: 0}
+  onUnitDeath: {fileID: 11400000, guid: f711463ab9692834585ad8d55146f424, type: 2}
 --- !u!1001 &2387606190638118543
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -56,6 +56,9 @@ namespace MazeMyTD
 
         public bool SpawnBuilding(int index)
         {
+            if (gameRules.waveStatus)
+                return false;
+
             if (index >= playerData.availableBuildings.Length
                 || playerData.availableBuildings[index] == null) //some buildings may not be available at start
                 return false;

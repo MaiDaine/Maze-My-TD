@@ -15,5 +15,5 @@ MonoBehaviour:
   availableBuildings:
   - {fileID: 2317089481746118865, guid: d8f6507f3cdbec643b2d28161835a0f5, type: 3}
   - {fileID: 4952715157035118718, guid: c8501b7e53f3e5e4e8edfee99a383f17, type: 3}
-  health: 100
-  ressources: 95
+  health: 20
+  ressources: 0

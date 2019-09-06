@@ -18,6 +18,8 @@ namespace MazeMyTD
         private ActionBarSlot actionBarSlotRef;
         [SerializeField]
         private RectTransform sellIcone;
+        [SerializeField]
+        private Text waveTimer;
 #pragma warning restore 0649
 
         private void Start()
@@ -47,6 +49,14 @@ namespace MazeMyTD
         public void OnPlayerRessourcesChange()
         {
             playerRessourcesText.text = playerData.ressources.ToString();
+        }
+
+        public void SetWaveTimer(int timer)
+        {
+            if (timer <= 0)
+                waveTimer.text = "";
+            else
+                waveTimer.text = timer.ToString();
         }
 
     }
