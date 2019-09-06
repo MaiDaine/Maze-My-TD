@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.AI;
 
 namespace MazeMyTD
 {
@@ -8,6 +10,20 @@ namespace MazeMyTD
 
         public static ConstructionController instance;
 
+#pragma warning disable 0649 //Field "" is never assigned to, and will always have its default value null
+        [SerializeField]
+        private PlayerData playerData;
+        [SerializeField]
+        private GameRules gameRules;
+        [SerializeField]
+        private GameEvent OnPlayerRessourceChange;
+#pragma warning restore 0649
+
+        private ConstructionState constructionState = ConstructionState.Off;
+        private ABuilding selectedBuilding = null;
+        private RayCastHelper rayCast;
+        private Vector3 defaultSpawnPosition;
+
         private void Awake()
         {
             if (instance == null)
@@ -15,17 +31,6 @@ namespace MazeMyTD
             else
                 Destroy(this);
         }
-
-#pragma warning disable 0649 //Field "" is never assigned to, and will always have its default value null
-        [SerializeField]
-        private PlayerData playerData;
-        [SerializeField]
-        private Vector3 defaultSpawnPosition;
-#pragma warning restore 0649
-
-        private ConstructionState constructionState = ConstructionState.Off;
-        private ABuilding selectedBuilding = null;
-        private RayCastHelper rayCast;
 
         private void Start()
         {
@@ -44,7 +49,7 @@ namespace MazeMyTD
                 {
                     selectedBuilding.Move(tile.tileCenter.transform.position);
                     if (Input.GetMouseButtonDown(0) && tile.tileState == Tile.TileState.Empty)
-                        PlaceBuilding();
+                        StartCoroutine(PlaceBuilding());
                 }
             }
         }
@@ -72,12 +77,23 @@ namespace MazeMyTD
             selectedBuilding.Move(defaultSpawnPosition);
         }
 
-        public void PlaceBuilding()
+        public IEnumerator PlaceBuilding()
         {
-            playerData.ressources -= selectedBuilding.ressourceCost;
-            selectedBuilding.Init();
-            selectedBuilding = null;
-            constructionState = ConstructionState.Off;
+            selectedBuilding.GetComponent<NavMeshObstacle>().enabled = true;
+            yield return null;
+            if (gameRules.RefreshWavePath())
+            {
+                playerData.ressources -= selectedBuilding.ressourceCost;
+                OnPlayerRessourceChange.Raise();
+                selectedBuilding.Initialize();
+                selectedBuilding = null;
+                constructionState = ConstructionState.Off;
+            }
+            else
+            {
+                selectedBuilding.GetComponent<NavMeshObstacle>().enabled = false;
+                Debug.Log("Do not block the path");//TODO: ErrorMsg
+            }
         }
     }
 }

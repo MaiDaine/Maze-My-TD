@@ -18,6 +18,12 @@ namespace MazeMyTD
             GetComponent<SphereCollider>().radius = atkRange;
         }
 
+        public override void Initialize()
+        {
+            base.Initialize();
+            GetComponent<SphereCollider>().enabled = true;
+        }
+
         private void FixedUpdate()
         {
             if (atkReloadTimer <= 0f)

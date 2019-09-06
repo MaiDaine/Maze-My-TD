@@ -1101,7 +1101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 385e0da8c5b82ca42bbdc5850c1c5a39, type: 2}
-  defaultSpawnPosition: {x: 0, y: 0, z: 0}
+  gameRules: {fileID: 1580819213}
+  OnPlayerRessourceChange: {fileID: 11400000, guid: 5653660fc3ce7c34f82276f06cf94721,
+    type: 2}
 --- !u!1001 &243126926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8448,6 +8450,7 @@ MonoBehaviour:
   enemySpawner: {fileID: 1984530297614656027}
   core: {fileID: 6246053523929060811}
   playerData: {fileID: 11400000, guid: 385e0da8c5b82ca42bbdc5850c1c5a39, type: 2}
+  OnGameOver: {fileID: 11400000, guid: a7ef615a75cf2ea4eaa6301274202c80, type: 2}
   OnPlayerHealthChange: {fileID: 11400000, guid: ca9717be894a9c7409177f11568dcda9,
     type: 2}
 --- !u!120 &1580819214

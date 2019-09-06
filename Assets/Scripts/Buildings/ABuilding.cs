@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.AI;
 
 namespace MazeMyTD
 {
     [RequireComponent(typeof(MeshRenderer))]
+    [RequireComponent(typeof(NavMeshObstacle))]
     public abstract class ABuilding : MonoBehaviour
     {
         public Texture buildingIcone;
@@ -18,7 +19,7 @@ namespace MazeMyTD
 #pragma warning restore 0649
 
 
-        public virtual void Init()
+        public virtual void Initialize()
         {
             GetComponent<MeshRenderer>().sharedMaterial = finalMaterial;
         }

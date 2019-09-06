@@ -1,5 +1,6 @@
 ﻿using UnityEngine.AI;
 using UnityEngine;
+using System.Collections;
 
 namespace MazeMyTD
 {
@@ -18,22 +19,32 @@ namespace MazeMyTD
         private GameEvent OnPlayerHealthChange;
 #pragma warning restore 0649
 
-        private void Update()
+        private void Start()
         {
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                CreateWavePath();
-                enemySpawner.SpawnCreep();
-            }
+            StartCoroutine(LateStart());
         }
 
-        public void CreateWavePath()
+        //Have to wait for NavMeshObstacle to be registered
+        private IEnumerator LateStart()
+        {
+            yield return new WaitForSeconds(1f);
+            RefreshWavePath();
+            //       enemySpawner.SpawnCreep();
+
+        }
+
+        public bool RefreshWavePath()
         {
             NavMeshPath path = new NavMeshPath();
 
-            NavMesh.CalculatePath(enemySpawner.spawnPoint.position, core.creepTarget.position, NavMesh.AllAreas, path);
-            GetComponent<PathRenderer>().UpdateRenderedPath(path, enemySpawner.transform.position);
-            enemySpawner.currentCreepPath = path;
+            if (NavMesh.CalculatePath(enemySpawner.spawnPoint.position, core.creepTarget.position, NavMesh.AllAreas, path)
+                && path.status == NavMeshPathStatus.PathComplete)
+            {
+                GetComponent<PathRenderer>().UpdateRenderedPath(path, enemySpawner.transform.position);
+                enemySpawner.currentCreepPath = path;
+                return true;
+            }
+            return false;
         }
 
         public void CoreDamage(int damage)
