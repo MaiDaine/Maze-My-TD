@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace MazeMyTD
 {
     [RequireComponent(typeof(MeshRenderer))]
     public abstract class ABuilding : MonoBehaviour
     {
+        public Texture buildingIcone;
         public Tile occupiedTile;
         public int ressourceCost;
 

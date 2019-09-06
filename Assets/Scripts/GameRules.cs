@@ -12,6 +12,8 @@ namespace MazeMyTD
 #pragma warning disable 0649 //Field "" is never assigned to, and will always have its default value null
         [SerializeField]
         private PlayerData playerData;
+        [SerializeField]
+        private GameEvent OnPlayerHealthChange;
 #pragma warning restore 0649
 
         private void Update()
@@ -37,6 +39,7 @@ namespace MazeMyTD
             playerData.health -= damage;
             if (playerData.health <= 0)
                 Application.Quit();//TODO: GameOver
+            OnPlayerHealthChange.Raise();
         }
     }
 }
