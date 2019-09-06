@@ -16,7 +16,9 @@ namespace MazeMyTD
         [SerializeField]
         private GameRules gameRules;
         [SerializeField]
-        private GameEvent OnPlayerRessourceChange;
+        private GameEvent onPlayerRessourceChange;
+        [SerializeField]
+        private MessageLog messageLog;
 #pragma warning restore 0649
 
         private ConstructionState constructionState = ConstructionState.Off;
@@ -68,7 +70,7 @@ namespace MazeMyTD
         {
             if (playerData.ressources < playerData.availableBuildings[index].ressourceCost)
             {
-                Debug.Log("Not enough ressources");//TODO: ErrorMsg
+                messageLog.AddMessage("Not enough ressources", true);
                 return false;
             }
             return true;
@@ -102,7 +104,7 @@ namespace MazeMyTD
             if (gameRules.RefreshWavePath())
             {
                 playerData.ressources -= selectedBuilding.ressourceCost;
-                OnPlayerRessourceChange.Raise();
+                onPlayerRessourceChange.Raise();
                 selectedBuilding.Initialize();
                 selectedBuilding = null;
                 constructionState = ConstructionState.Off;
@@ -110,7 +112,7 @@ namespace MazeMyTD
             else
             {
                 selectedBuilding.GetComponent<NavMeshObstacle>().enabled = false;
-                Debug.Log("Do not block the path");//TODO: ErrorMsg
+                messageLog.AddMessage("Do not block the path", true);
             }
         }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace MazeMyTD
 {
-    public class HUDController : MonoBehaviour
+    public class UIController : MonoBehaviour
     {
 #pragma warning disable 0649 //Field "" is never assigned to, and will always have its default value null
         [SerializeField]

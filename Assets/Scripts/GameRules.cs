@@ -16,7 +16,7 @@ namespace MazeMyTD
 
 #pragma warning disable 0649 //Field "" is never assigned to, and will always have its default value null
         [SerializeField]
-        private HUDController hUDController;
+        private UIController UIController;
         [SerializeField]
         private PlayerData playerData;
         [SerializeField]
@@ -25,7 +25,8 @@ namespace MazeMyTD
         private GameEvent OnPlayerHealthChange;
         [SerializeField]
         private GameEvent OnPlayerRessourceChange;
-
+        [SerializeField]
+        private MessageLog messageLog;
 #pragma warning restore 0649
 
         private float waveTimer = delayBetweenWaves;
@@ -33,8 +34,6 @@ namespace MazeMyTD
 
         private void Start()
         {
-            playerData.health = 25;//TODO REMOVE
-            playerData.ressources = 100;
             StartCoroutine(LateStart());
         }
 
@@ -71,7 +70,9 @@ namespace MazeMyTD
         {
             waveStatus = false;
             waveTimer = delayBetweenWaves;
-            playerData.ressources += ressourceGain * waveLevel;
+            int gain = ressourceGain * waveLevel;
+            playerData.ressources += gain;
+            messageLog.AddMessage("You gain: " + gain.ToString() + " ressources");
             OnPlayerRessourceChange.Raise();
             waveLevel++;
         }
@@ -85,9 +86,10 @@ namespace MazeMyTD
                 {
                     waveStatus = true;
                     enemySpawner.StartWave(waveLevel);
+                    messageLog.AddMessage("Level " + waveLevel.ToString() + " start");
                 }
                 else
-                    hUDController.SetWaveTimer((int)waveTimer);
+                    UIController.SetWaveTimer((int)waveTimer);
             }
         }
     }
