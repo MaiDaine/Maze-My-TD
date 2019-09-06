@@ -4,6 +4,7 @@ using UnityEngine;
 namespace MazeMyTD
 {
     [RequireComponent(typeof(SphereCollider))]
+    [RequireComponent(typeof(LineRenderer))]
     public class Tower : ABuilding
     {
         public int atkDamage;
@@ -12,16 +13,27 @@ namespace MazeMyTD
 
         private float atkReloadTimer = 0f;
         private List<UnitHealth> targets = new List<UnitHealth>();
+        private LineRenderer lineRenderer;
 
         private void Awake()
         {
             GetComponent<SphereCollider>().radius = atkRange;
+            lineRenderer = GetComponent<LineRenderer>();
+            lineRenderer.positionCount = 361;
+            Vector3[] positions = new Vector3[361];
+            for (int i = 0; i < 361; i++)
+            {
+                float rad = Mathf.Deg2Rad * i;
+                positions[i] = new Vector3(Mathf.Sin(rad) * atkRange - 3f * positionOffset.x, 0, Mathf.Cos(rad) * atkRange - 3f * positionOffset.z);
+            }
+            lineRenderer.SetPositions(positions);
         }
 
         public override void Initialize()
         {
             base.Initialize();
             GetComponent<SphereCollider>().enabled = true;
+            lineRenderer.enabled = false;
         }
 
         private void FixedUpdate()

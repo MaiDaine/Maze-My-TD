@@ -6,6 +6,11 @@ namespace MazeMyTD
     {
         public Tile occupiedTile;
 
+        private void Start()
+        {
+            SetInvalidStatusOnTile();
+        }
+
         public void SetInvalidStatusOnTile()
         {
             occupiedTile.tileState = Tile.TileState.Invalid;
