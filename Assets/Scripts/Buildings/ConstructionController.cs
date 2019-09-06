@@ -54,14 +54,16 @@ namespace MazeMyTD
             }
         }
 
-        public void SpawnBuilding(int index)
+        public bool SpawnBuilding(int index)
         {
-            if (index >= playerData.availableBuildings.Length) //some buildings may not be available at start
-                return;
+            if (index >= playerData.availableBuildings.Length
+                || playerData.availableBuildings[index] == null) //some buildings may not be available at start
+                return false;
+
             if (playerData.ressources < playerData.availableBuildings[index].ressourceCost)
             {
                 Debug.Log("Not enough ressources");//TODO: ErrorMsg
-                return;
+                return false;
             }
 
             if (constructionState == ConstructionState.Positioning)
@@ -75,6 +77,7 @@ namespace MazeMyTD
 
             selectedBuilding = Instantiate(playerData.availableBuildings[index]);
             selectedBuilding.Move(defaultSpawnPosition);
+            return true;
         }
 
         public IEnumerator PlaceBuilding()
@@ -95,5 +98,7 @@ namespace MazeMyTD
                 Debug.Log("Do not block the path");//TODO: ErrorMsg
             }
         }
+
+        public void SetPlayerData(PlayerData playerData) { this.playerData = playerData; }
     }
 }
