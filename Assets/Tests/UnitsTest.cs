@@ -89,7 +89,7 @@ namespace Tests
             unitHealth.TakeDamage(0);
             Assert.AreEqual(unitHealth.currentHealth, maxHealth);
 
-            unitHealth.TakeDamage((int)Random.Range(Mathf.NegativeInfinity, 0));
+            unitHealth.TakeDamage((int)Random.Range(-1000, 0));
             Assert.AreEqual(unitHealth.currentHealth, maxHealth);
         }
 

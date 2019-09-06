@@ -21,7 +21,7 @@ namespace MazeMyTD
 
         private ConstructionState constructionState = ConstructionState.Off;
         private ABuilding selectedBuilding = null;
-        private RayCastHelper rayCast;
+        private RayCastHelper rayCast = null;
         private Vector3 defaultSpawnPosition;
 
         private void Awake()
@@ -39,8 +39,10 @@ namespace MazeMyTD
 
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))//TODO: Inputs
+            if (Input.GetKeyDown(KeyCode.Alpha1))
                 SpawnBuilding(0);
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+                SpawnBuilding(1);
 
             if (constructionState == ConstructionState.Positioning)
             {
@@ -54,20 +56,30 @@ namespace MazeMyTD
             }
         }
 
-        public bool SpawnBuilding(int index)
+        public bool CheckBuildingValidity(int index)
         {
-            if (gameRules.waveStatus)
-                return false;
-
             if (index >= playerData.availableBuildings.Length
                 || playerData.availableBuildings[index] == null) //some buildings may not be available at start
                 return false;
+            return true;
+        }
 
+        public bool CheckRessourcesAvailability(int index)
+        {
             if (playerData.ressources < playerData.availableBuildings[index].ressourceCost)
             {
                 Debug.Log("Not enough ressources");//TODO: ErrorMsg
                 return false;
             }
+            return true;
+        }
+
+        public void SpawnBuilding(int index)
+        {
+            if (gameRules.waveStatus
+                || !CheckBuildingValidity(index)
+                || !CheckRessourcesAvailability(index))
+                return;
 
             if (constructionState == ConstructionState.Positioning)
                 Destroy(selectedBuilding);
@@ -80,7 +92,7 @@ namespace MazeMyTD
 
             selectedBuilding = Instantiate(playerData.availableBuildings[index]);
             selectedBuilding.Move(defaultSpawnPosition);
-            return true;
+            return;
         }
 
         public IEnumerator PlaceBuilding()

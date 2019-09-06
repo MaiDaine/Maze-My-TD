@@ -65,7 +65,7 @@ namespace Tests
         {
             ConstructionController constructionController = CreateConstructionController(CreatePlayerData());
 
-            Assert.AreEqual(constructionController.SpawnBuilding((int)Random.Range(1, 10)), false);
+            Assert.AreEqual(constructionController.CheckBuildingValidity((int)Random.Range(1, 10)), false);
             GameObject.DestroyImmediate(constructionController);
         }
 
@@ -75,7 +75,7 @@ namespace Tests
             int ressources = Random.Range(0, 4);
             ConstructionController constructionController = CreateConstructionController(CreatePlayerData(0, ressources));
 
-            Assert.AreEqual(constructionController.SpawnBuilding(Random.Range(0, 1)), false);
+            Assert.AreEqual(constructionController.CheckRessourcesAvailability(Random.Range(0, 1)), false);
             GameObject.DestroyImmediate(constructionController);
         }
     }

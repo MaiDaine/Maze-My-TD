@@ -370,9 +370,9 @@ MonoBehaviour:
   ressourceCost: 20
   finalMaterial: {fileID: 0}
   positionOffset: {x: 0.1, y: 0, z: -0.1}
-  atkDamage: 1
+  atkDamage: 5
   atkCoolDown: 1
-  atkRange: 5
+  atkRange: 10
 --- !u!1 &3253510202041426112
 GameObject:
   m_ObjectHideFlags: 0

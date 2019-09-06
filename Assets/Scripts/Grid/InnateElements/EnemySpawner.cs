@@ -34,8 +34,7 @@ namespace MazeMyTD
 
         public void OnUnitDeath()
         {
-            activeUnitCount--;
-            if (activeUnitCount <= 0)
+            if (unitStock == 0 && activeUnitCount <= 0)
                 OnWaveEnd.Raise();
         }
 
@@ -66,6 +65,7 @@ namespace MazeMyTD
             Unit unit = Instantiate(unitRef, spawnPoint.position, spawnPoint.rotation);
             unit.Initialize(currentStats);
             unit.GetComponent<UnitMovement>().SetPath(currentCreepPath, spawnPoint.position);
+            activeUnitCount++;
         }
     }
 }
