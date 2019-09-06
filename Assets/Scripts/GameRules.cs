@@ -13,6 +13,8 @@ namespace MazeMyTD
         [SerializeField]
         private PlayerData playerData;
         [SerializeField]
+        private GameEvent OnGameOver;
+        [SerializeField]
         private GameEvent OnPlayerHealthChange;
 #pragma warning restore 0649
 
@@ -38,7 +40,7 @@ namespace MazeMyTD
         {
             playerData.health -= damage;
             if (playerData.health <= 0)
-                Application.Quit();//TODO: GameOver
+                OnGameOver.Raise();
             OnPlayerHealthChange.Raise();
         }
     }
